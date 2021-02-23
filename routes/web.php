@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\{KategoriController, NamaPenjualController};
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +32,13 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
     Route::get('/category-edit/{id}', [KategoriController::class, 'edit'])->name('category.edit');
     Route::put('/category-update/{id}', [KategoriController::class, 'update'])->name('category.update');
     Route::delete('/category-destroy/{id}', [KategoriController::class, 'destroy'])->name('category.destroy');
+
+    // KATEGORI
+    Route::get('/data-penjual', [NamaPenjualController::class, 'index'])->name('penjual.index');
+    Route::get('/data-penjual-create', [NamaPenjualController::class, 'create'])->name('penjual.create');
+    Route::post('/data-penjual-store', [NamaPenjualController::class, 'store'])->name('penjual.store');
+    Route::get('/data-penjual-edit/{id}', [NamaPenjualController::class, 'edit'])->name('penjual.edit');
+    Route::put('/data-penjual-update/{id}', [NamaPenjualController::class, 'update'])->name('penjual.update');
+    Route::delete('/data-penjual-destroy/{id}', [NamaPenjualController::class, 'destroy'])->name('penjual.destroy');
 
 });
