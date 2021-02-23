@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
+
+    // KATEGORI
+    Route::get('/category', [KategoriController::class, 'index'])->name('category.index');
+    Route::get('/category-create', [KategoriController::class, 'create'])->name('category.create');
+    Route::post('/category-store', [KategoriController::class, 'store'])->name('category.store');
+    Route::get('/category-edit/{id}', [KategoriController::class, 'edit'])->name('category.edit');
+    Route::put('/category-update/{id}', [KategoriController::class, 'update'])->name('category.update');
+    Route::delete('/category-destroy/{id}', [KategoriController::class, 'destroy'])->name('category.destroy');
+
+});
