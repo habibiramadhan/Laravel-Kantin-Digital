@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>LOGIN || Kantin Digital</title>
+      <title>@yield('title')</title>
       
       <!-- Favicon -->
       <link rel="shortcut icon" href="https://meetmighty.com/dashboards/simpled/html/assets/images/favicon.ico" />
@@ -25,9 +25,47 @@
       <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/list/main.css') }}' />
       <link rel="stylesheet" href=" {{ asset('assets/vendor/mapbox/mapbox-gl.css') }}">  </head>
   <body class=" ">
-    @yield('content')
+    <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div>
 
-    
+    <div class="wrapper">
+        @include('layouts.modules.sidebar')
+        @include('layouts.modules.topbar')
+
+         <!-- Page start  -->
+        <div class="content-page">
+        <div class="container-fluid">
+                
+            @yield('content')
+        <!-- Page end  -->
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <footer class="mm-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <span class="mr-1">
+                        Copyright
+                        <script>document.write(new Date().getFullYear())</script>© <a href="#" class="">SimpleD</a>
+                        All Rights Reserved.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
     
     <!-- Backend Bundle JavaScript -->
     <script src="{{ asset('assets/js/backend-bundle.min.js') }}"></script>

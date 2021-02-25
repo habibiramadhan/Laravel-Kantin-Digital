@@ -1,31 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-            return view('kasir.dashboard', ['greeting'=>$this->greeting()]);
-    
     }
 
     private function greeting()
@@ -43,5 +27,8 @@ class HomeController extends Controller
         return $greeting;
     }
 
-    
+    public function dashboard()
+    {
+        return view('admin.dashboard', ['greeting'=>$this->greeting()]);
+    }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\{KategoriController, NamaPenjualController};
+// use App\Http\Controllers\{KategoriController, NamaPenjualController};
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +42,11 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
     Route::delete('/data-penjual-destroy/{id}', [NamaPenjualController::class, 'destroy'])->name('penjual.destroy');
 
 });
+
+Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function(){
+    Route::get('/', 'Admin\DashboardController@dashboard')->name('home');
+    Route::get('/home', 'Admin\DashboardController@dashboard')->name('home');
+    
+});
+
+Route::get('/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');
