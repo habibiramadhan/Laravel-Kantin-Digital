@@ -18,11 +18,11 @@ class DashboardController extends Controller
         $jam = date('H');
         $name = Auth::user()->name;
         if ($jam >= 18) {
-            $greeting = "Good Night ". $name;
+            $greeting = "Selamat Malam ". $name;
         } elseif ($jam >= 12) {
-            $greeting = "Good Afternoon ". $name;
+            $greeting = "Selamat Siang ". $name;
         } elseif ($jam < 12) {
-            $greeting = "Good Morning ". $name;
+            $greeting = "Selmat Pagi". $name;
         }
         return $greeting;
     }

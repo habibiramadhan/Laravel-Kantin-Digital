@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <div class="mm-navbar-logo d-flex align-items-center justify-content-between">
                 <i class="ri-menu-line wrapper-menu"></i>
-                <a href="index-2.html" class="header-logo">
+                <a href="{{route('admin.home')}}" class="header-logo">
                     <img src="../assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
                     <h4 class="ml-1"><b>Kantin Digital</b></h4>
                 </a>
@@ -134,6 +134,7 @@
                             <a href="#" class="nav-item nav-icon dropdown-toggle pr-0 search-toggle"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
+                                
                                 <img src="../assets/images/user/1.jpg" class="img-fluid avatar-rounded" alt="user">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -154,7 +155,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
-                                    <a href="https://meetmighty.com/dashboards/simpled/html/app/user-profile-edit.html">Edit
+                                    <a href="{{route('admin.home')}}">Edit
                                         Profile</a>
                                 </li>
                                 <li class="dropdown-item d-flex svg-icon">

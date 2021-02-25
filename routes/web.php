@@ -21,10 +21,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
 
+    Route::prefix('profile')->name('profile.')->group(function(){
+        Route::get('/', 'ProfileController@index')->name('index');
+        Route::get('/', 'ProfileController@edit')->name('edit');
+        Route::get('/', 'ProfileController@update')->name('update');
+        Route::post('/change-image', 'ProfileController@changeImage')->name('change-image');
+        Route::put('/{user}/update', 'ProfileController@update')->name('update');
+        Route::patch('/change-password', 'ProfileController@changePassword')->name('changePassword');
+    });
+    
     // KATEGORI
     Route::get('/category', [KategoriController::class, 'index'])->name('category.index');
     Route::get('/category-create', [KategoriController::class, 'create'])->name('category.create');
@@ -48,5 +57,7 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
     Route::get('/home', 'Admin\DashboardController@dashboard')->name('home');
     
 });
+
+
 
 Route::get('/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');

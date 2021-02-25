@@ -11,7 +11,7 @@
       <title>@yield('title')</title>
       
       <!-- Favicon -->
-      <link rel="shortcut icon" href="https://meetmighty.com/dashboards/simpled/html/assets/images/favicon.ico" />
+      <link rel="icon" href="../assets/images/logo111.png" type = "image/x-icon"/>
       <link rel="stylesheet" href=" {{ asset('assets/css/backend-plugin.min.css') }}">
       <link rel="stylesheet" href=" {{ asset('assets/css/backende209.css?v=1.0.0') }}">
       <link rel="stylesheet" href=" {{ asset('assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css') }}">
@@ -37,7 +37,7 @@
          <!-- Page start  -->
         <div class="content-page">
         <div class="container-fluid">
-                
+
             @yield('content')
         <!-- Page end  -->
         </div>
@@ -59,7 +59,7 @@
                 <div class="col-lg-6 text-right">
                     <span class="mr-1">
                         Copyright
-                        <script>document.write(new Date().getFullYear())</script>© <a href="#" class="">SimpleD</a>
+                        <script>document.write(new Date().getFullYear())</script>© <a href="https://www.linkedin.com/in/habibi-ramadhan-bb7b03203/" class="">SMK Wikrama Bogor</a>
                         All Rights Reserved.
                     </span>
                 </div>

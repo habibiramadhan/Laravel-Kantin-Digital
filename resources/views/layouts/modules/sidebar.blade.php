@@ -1,20 +1,20 @@
 <!-- strat sidebar -->
 <div class="mm-sidebar  sidebar-default ">
     <div class="mm-sidebar-logo d-flex align-items-center justify-content-between">
-        <a href="index-2.html" class="header-logo">
+        <a href="{{route('admin.home')}}" class="header-logo">
             <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
             <img src="../assets/images/white-logo.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
         </a>
         <div class="side-menu-bt-sidebar">
-            <i class="las la-bars wrapper-menu"></i>
+            <i class="ri-menu-line wrapper-menu "></i>
         </div>
     </div>
     <div class="data-scrollbar" data-scroll="1">
         <nav class="mm-sidebar-menu">
             {{-- add side-menu --}}
-            <ul id="mm-sidebar-toggle" class="side-menu">
+            <ul id="mm-sidebar-toggle" class="side-menu ">
                 <li class="active">
-                    <a href="index-2.html" class="svg-icon">
+                    <a href="{{route('admin.home')}}" class="svg-icon">
                         <i class="">
                             <svg class="svg-icon" id="mm-dash-1" width="20" xmlns="http://www.w3.org/2000/svg"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
