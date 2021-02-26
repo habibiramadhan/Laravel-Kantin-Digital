@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\{KategoriController, NamaPenjualController};
@@ -15,24 +17,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('welcome');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
 
-    Route::prefix('profile')->name('profile.')->group(function(){
-        Route::get('/', 'ProfileController@index')->name('index');
-        Route::get('/', 'ProfileController@edit')->name('edit');
-        Route::get('/', 'ProfileController@update')->name('update');
-        Route::post('/change-image', 'ProfileController@changeImage')->name('change-image');
-        Route::put('/{user}/update', 'ProfileController@update')->name('update');
-        Route::patch('/change-password', 'ProfileController@changePassword')->name('changePassword');
-    });
+    
     
     // KATEGORI
     Route::get('/category', [KategoriController::class, 'index'])->name('category.index');
@@ -55,9 +48,25 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function(){
 Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function(){
     Route::get('/', 'Admin\DashboardController@dashboard')->name('home');
     Route::get('/home', 'Admin\DashboardController@dashboard')->name('home');
+
+    Route::prefix('category')->name('category.')->group(function(){
+        Route::get('/index', 'Admin\KategoriController@index')->name('index');
+        Route::get('/create', 'Admin\KategoriController@create')->name('create');
+        Route::post('/store', 'Admin\KategoriController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\KategoriController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\KategoriController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\KategoriController@destroy')->name('destroy');
+        
+    });
+    
+
+    
     
 });
 
 
-
-Route::get('/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');
+Route::get('kasir/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');
+//Profile 
+Route::prefix('profile')->name('profile.')->group(function(){
+    Route::get('profile-edit', 'ProfileController@edit')->name('edit');
+});

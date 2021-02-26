@@ -5,7 +5,7 @@
             <div class="mm-navbar-logo d-flex align-items-center justify-content-between">
                 <i class="ri-menu-line wrapper-menu"></i>
                 <a href="{{route('admin.home')}}" class="header-logo">
-                    <img src="../assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
+                    <img src="http://localhost:8000/assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
                     <h4 class="ml-1"><b>Kantin Digital</b></h4>
                 </a>
             </div>
@@ -93,7 +93,7 @@
                                                 <div class="media align-items-center">
                                                     <div class="">
                                                         <img class="avatar-40 rounded-small"
-                                                            src="../assets/images/user/1.jpg" alt="01">
+                                                            src="http://localhost:8000/assets/images/user/1.jpg" alt="01">
                                                     </div>
                                                     <div class="media-body ml-3">
                                                         <h6 class="mb-0">Emma Watson Barry <small
@@ -135,7 +135,7 @@
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 
-                                <img src="../assets/images/user/1.jpg" class="img-fluid avatar-rounded" alt="user">
+                                <img src="http://localhost:8000/assets/images/user/1.jpg" class="img-fluid avatar-rounded" alt="user">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <li class="dropdown-item d-flex svg-icon">
@@ -155,7 +155,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
-                                    <a href="{{route('admin.home')}}">Edit
+                                    <a href="{{ route('profile.edit') }}">Edit
                                         Profile</a>
                                 </li>
                                 <li class="dropdown-item d-flex svg-icon">

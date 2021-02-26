@@ -3,6 +3,7 @@
 
 <!doctype html>
 <html lang="en">
+    
   
 <!-- Mirrored from meetmighty.com/dashboards/simpled/html/backend/auth-sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 04:14:57 GMT -->
 <head>
@@ -11,7 +12,7 @@
       <title>@yield('title')</title>
       
       <!-- Favicon -->
-      <link rel="icon" href="../assets/images/logo111.png" type = "image/x-icon"/>
+      <link rel="icon" href="{{ asset('assets/images/logo111.png') }}" type = "image/x-icon"/>
       <link rel="stylesheet" href=" {{ asset('assets/css/backend-plugin.min.css') }}">
       <link rel="stylesheet" href=" {{ asset('assets/css/backende209.css?v=1.0.0') }}">
       <link rel="stylesheet" href=" {{ asset('assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css') }}">
@@ -31,8 +32,8 @@
     </div>
 
     <div class="wrapper">
-        @include('layouts.modules.sidebar')
-        @include('layouts.modules.topbar')
+        @include('layouts.admin.sidebar')
+        @include('layouts.admin.topbar')
 
          <!-- Page start  -->
         <div class="content-page">

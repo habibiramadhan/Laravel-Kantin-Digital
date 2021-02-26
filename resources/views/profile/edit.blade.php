@@ -10,26 +10,17 @@
              <div class="card-body p-0">
                 <div class="mm-edit-list usr-edit">
                    <ul class="mm-edit-profile d-flex nav nav-pills">
-                      <li class="col-md-3 p-0">
+                      <li class="col-md-6 p-0">
                          <a class="nav-link active" data-toggle="pill" href="#personal-information">
                            Informasi pribadi
                          </a>
                       </li>
-                      <li class="col-md-3 p-0">
+                      <li class="col-md-6 p-0">
                          <a class="nav-link" data-toggle="pill" href="#chang-pwd">
                          Ubah Password
                          </a>
                       </li>
-                      <li class="col-md-3 p-0">
-                         <a class="nav-link" data-toggle="pill" href="#emailandsms">
-                         Email and SMS
-                         </a>
-                      </li>
-                      <li class="col-md-3 p-0">
-                         <a class="nav-link" data-toggle="pill" href="#manage-contact">
-                         Manage Contact
-                         </a>
-                      </li>
+                      
                    </ul>
                 </div>
              </div>
@@ -49,7 +40,7 @@
                          </div>
                       </div>
                       <div class="card-body">
-                         <form method="POST" action="{{ route('profile.update') }}">
+                         <form>
                            @method('patch')
                            @csrf
                            
@@ -67,22 +58,11 @@
                                </div>
                             </div>
                             <div class=" row align-items-center">
-                               <div class="form-group col-sm-6">
-                                  <label for="fname">First Name:</label>
+                               <div class="form-group col-sm-12">
+                                  <label for="fname">Nama Lengkap:</label>
                                   <input type="text" class="form-control" id="fname" value="Barry">
                                </div>
-                               <div class="form-group col-sm-6">
-                                  <label for="lname">Last Name:</label>
-                                  <input type="text" class="form-control" id="lname" value="Tech">
-                               </div>
-                               <div class="form-group col-sm-6">
-                                  <label for="uname">User Name:</label>
-                                  <input type="text" class="form-control" id="uname" value="Barry@01">
-                               </div>
-                               <div class="form-group col-sm-6">
-                                  <label for="cname">City:</label>
-                                  <input type="text" class="form-control" id="cname" value="Atlanta">
-                               </div>
+                               
                                <div class="form-group col-sm-6">
                                   <label class="d-block">Gender:</label>
                                   <div class="custom-control custom-radio custom-control-inline">
@@ -181,96 +161,7 @@
                       </div>
                    </div>
                 </div>
-                <div class="tab-pane fade" id="emailandsms" role="tabpanel">
-                   <div class="card">
-                      <div class="card-header d-flex justify-content-between">
-                         <div class="header-title">
-                            <h4 class="card-title">Email and SMS</h4>
-                         </div>
-                      </div>
-                      <div class="card-body">
-                         <form>
-                            <div class="form-group row align-items-center">
-                               <label class="col-md-3" for="emailnotification">Email Notification:</label>
-                               <div class="col-md-9 custom-control custom-switch">
-                                  <input type="checkbox" class="custom-control-input" id="emailnotification" checked="">
-                                  <label class="custom-control-label" for="emailnotification"></label>
-                               </div>
-                            </div>
-                            <div class="form-group row align-items-center">
-                               <label class="col-md-3" for="smsnotification">SMS Notification:</label>
-                               <div class="col-md-9 custom-control custom-switch">
-                                  <input type="checkbox" class="custom-control-input" id="smsnotification" checked="">
-                                  <label class="custom-control-label" for="smsnotification"></label>
-                               </div>
-                            </div>
-                            <div class="form-group row align-items-center">
-                               <label class="col-md-3" for="npass">When To Email</label>
-                               <div class="col-md-9">
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email01">
-                                     <label class="custom-control-label" for="email01">You have new notifications.</label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email02">
-                                     <label class="custom-control-label" for="email02">You're sent a direct message</label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email03" checked="">
-                                     <label class="custom-control-label" for="email03">Someone adds you as a connection</label>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="form-group row align-items-center">
-                               <label class="col-md-3" for="npass">When To Escalate Emails</label>
-                               <div class="col-md-9">
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email04">
-                                     <label class="custom-control-label" for="email04"> Upon new order.</label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email05">
-                                     <label class="custom-control-label" for="email05"> New membership approval</label>
-                                  </div>
-                                  <div class="custom-control custom-checkbox">
-                                     <input type="checkbox" class="custom-control-input" id="email06" checked="">
-                                     <label class="custom-control-label" for="email06"> Member registration</label>
-                                  </div>
-                               </div>
-                            </div>
-                            <button type="reset" class="btn btn-outline-primary mr-2">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                         </form>
-                      </div>
-                   </div>
-                </div>
-                <div class="tab-pane fade" id="manage-contact" role="tabpanel">
-                   <div class="card">
-                      <div class="card-header d-flex justify-content-between">
-                         <div class="header-title">
-                            <h4 class="card-title">Manage Contact</h4>
-                         </div>
-                      </div>
-                      <div class="card-body">
-                         <form>
-                            <div class="form-group">
-                               <label for="cno">Contact Number:</label>
-                               <input type="text" class="form-control" id="cno" value="001 2536 123 458">
-                            </div>
-                            <div class="form-group">
-                               <label for="email">Email:</label>
-                               <input type="text" class="form-control" id="email" value="Barryjone@demo.com">
-                            </div>
-                            <div class="form-group">
-                               <label for="url">Url:</label>
-                               <input type="text" class="form-control" id="url" value="https://getbootstrap.com/">
-                            </div>
-                            <button type="reset" class="btn btn-outline-primary mr-2">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                         </form>
-                      </div>
-                   </div>
-                </div>
+                
              </div>
           </div>
        </div>
