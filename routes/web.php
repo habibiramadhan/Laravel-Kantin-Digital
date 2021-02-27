@@ -58,6 +58,16 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::delete('/destroy/{id}', 'Admin\KategoriController@destroy')->name('destroy');
         
     });
+
+    Route::prefix('penjual')->name('penjual.')->group(function(){
+        Route::get('/index', 'Admin\NamaPenjualController@index')->name('index');
+        Route::get('/create', 'Admin\NamaPenjualController@create')->name('create');
+        Route::post('/store', 'Admin\NamaPenjualController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\NamaPenjualController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\NamaPenjualController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\NamaPenjualController@destroy')->name('destroy');
+        
+    });
     
 
     
