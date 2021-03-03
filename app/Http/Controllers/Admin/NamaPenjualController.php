@@ -14,11 +14,6 @@ class NamaPenjualController extends Controller
         return view('admin.dataPenjual.index', compact('penjuals'));
     }
 
-    public function create()
-    {
-        return view('admin.dataPenjual.create');
-    }
-
     public function store(Request $request)
     {
         //melakukan validasi data

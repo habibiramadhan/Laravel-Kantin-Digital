@@ -15,4 +15,11 @@ class MenuMakanan extends Model
         'nama_penjual_id',
         'nama_kategori_id',
     ];
+
+    public function namaPenjual() {
+        return $this->belongsTo(NamaPenjual::class);
+    }
+    public function kategoriMakanan() {
+        return $this->belongsTo(Kategori::class, 'nama_kategori_id');
+    }
 }
