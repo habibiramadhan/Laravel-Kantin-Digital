@@ -1,4 +1,7 @@
-@extends('layouts.admin.app')
+@extends('layouts.admin')
+
+
+@section('title', 'Menu Makanan')
 
 @section('content')
 <div class="row">
@@ -13,7 +16,7 @@
           <div class="header-action">
             <button class="btn btn-primary float-right shadow"
             data-toggle="modal" data-target="#modalTambah">
-                 Tambah Menu Makanan
+                 Tambah Pengguna Baru
             </button>  
                 </div>
           </div>
@@ -23,28 +26,29 @@
                    <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama Penjual</th>
-                        <th>Kategori Makanan</th>
-                        <th>Nama Makanan</th>
-                        <th>Harga Penjual</th>
-                        <th>Harga Jual</th>
+                        <th>Foto</th>
+                        <th>Nama Pengguna</th>
+                        <th>Status</th>
                         <th>Action</th>
                       </tr>
                    </thead>
                    <tbody>
-                  
+                    @foreach ($users as $item)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->photo }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->role }}</td>
                         <td>
-
+                              {{-- <form action="{{ route('admin.menu-makanan.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('admin.menu-makanan.edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                              </form> --}}
                         </td>
                     </tr>    
-               
+                @endforeach
                    </tbody>
                 </table>
              </div>
@@ -54,4 +58,7 @@
  </div>
 </div>
 
+
 @endsection
+
+

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Kasir;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -30,4 +31,6 @@ class DashboardController extends Controller
     {
         return view('kasir.dashboard', ['greeting'=>$this->greeting()]);
     }
+
+
 }

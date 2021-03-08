@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {return view('welcome');})->name('welcome');
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home');
-
+Route::prefix('kasir')->name('kasir.')->middleware('role:kasir')->group(function(){
+    Route::get('/', 'Kasir\DashboardController@dashboard')->name('home');
+    Route::get('/home', 'Kasir\DashboardController@dashboard')->name('home');
+});
 // ADMIN
 Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function(){
     Route::get('/', 'Admin\DashboardController@dashboard')->name('home');

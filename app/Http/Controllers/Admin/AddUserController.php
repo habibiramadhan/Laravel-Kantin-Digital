@@ -16,7 +16,8 @@ class AddUserController extends Controller
      */
     public function index()
     {
-        return view('admin.program-baru.index');
+        $users= User::latest()->get();
+        return view('admin.program-baru.index', compact('users'));
     }
 
     /**
@@ -37,17 +38,38 @@ class AddUserController extends Controller
      */
     public function store(Request $request)
     {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'jk' => ['required', 'string','max:255'],
+            'alamat' => ['required', 'string','max:255'],
+            'image' => 'required|image'
+            
+        ]);
+
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $filename = $filename .'_'. date('d-m-y').'_'.time(). '.'.$file->extension();
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($data['password']),
             'jk' => $request->jk,
-            'alamat' =>$request
+            'alamat' => $request->alamat,
+            'image' => $filename,
+            
         ]);
+        $file->move(public_path('images/menu'), $filename);
 
         $user->assignRole($request->role);
 
-        // return .....
+        return view('admin.program-baru.index');
+    }
+
+        
     }
 
     /**
