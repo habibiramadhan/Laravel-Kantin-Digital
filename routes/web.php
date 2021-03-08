@@ -49,11 +49,14 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::put('/update/{id}', 'Admin\MenuMakananController@update')->name('update');
         Route::delete('/destroy/{id}', 'Admin\MenuMakananController@destroy')->name('destroy');
     });
-    
+    Route::prefix('program-baru')->name('program-baru.')->group(function(){
+        Route::get('/index', 'Admin\AddUserController@index')->name('index');
+    });
+
+    Route::get('transaksi/index', 'Admin\AddUserController@index')->name('transaksi.index');
 });
 
 
-Route::get('kasir/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');
 //Profile 
 Route::prefix('profile')->name('profile.')->group(function(){
     Route::get('profile-edit', 'ProfileController@edit')->name('edit');

@@ -25,7 +25,7 @@
                         <span>Halaman Utama</span>
                     </a>
                 </li>
-
+<li><a href="{{route('admin.transaksi.index')}}">Transaksi</a></li>
                 <li class="@if(request()->routeIs('admin.category.*')) active @endif">
                     <a href="{{route('admin.category.index')}}" class="svg-icon">
                         <i class=" @if(request()->routeIs('admin.category.*')) active @endif">
@@ -86,7 +86,7 @@
                         </div>
                         <h5 class="mb-3 text-white mt-3">Tahukah kamu ?</h5>
                         <p class="mb-0 text-white">Anda dapat menambahkan pengguna tambahan di Pengaturan Akun Anda</p>
-                        <button type="button" class="btn btn-dark mt-3">
+                        <button type="button" class="btn btn-dark mt-3" onclick="document.location.href='{{route('admin.program-baru.index')}}'">
                             Program Baru
                         </button>
                     </div>

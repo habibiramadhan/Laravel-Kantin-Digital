@@ -43,9 +43,9 @@ class LoginController extends Controller
     {
        
         if ($user->hasRole('admin')) {
-            return redirect()->route('admin.home');
+            return redirect()->route('user.home');
         }
-        return redirect()->route('user.home');
+        return redirect()->route('home');
 
        
     }

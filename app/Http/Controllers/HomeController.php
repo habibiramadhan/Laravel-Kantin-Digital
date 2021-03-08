@@ -24,11 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->hasRole('admin')) {
-            return redirect()->route('admin.home');
-        } elseif (Auth::user()->hasRole('kasir')){
-            return view('kasir.dashboard', ['greeting'=>$this->greeting()]);
-        }
+        // if (Auth::user()->hasRole('admin')) {
+        //     return redirect()->route('admin.home');
+        // } elseif (Auth::user()->hasRole('kasir')){
+        //     return view('kasir.dashboard', ['greeting'=>$this->greeting()]);
+        // }
+
+        return view('dashboard', ['greeting'=>$this->greeting()]);
     
     }
 
