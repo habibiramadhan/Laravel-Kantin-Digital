@@ -89,6 +89,42 @@
                         </i><span class="">Penjualan Harian</span>
                     </a>
                 </li>
+
+                <li class="">
+                    <a href="#Dashboards" class="collapsed svg-icon" data-toggle="collapse" aria-expanded="false">
+                        <i class="">
+                            <svg class="svg-icon" id="mm-dash" width="20" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </i>
+
+                        <span class="ml-2">Dapur</span>
+
+                        <i class="las la-angle-right mm-arrow-right arrow-active"></i>
+                        <i class="las la-angle-down mm-arrow-right arrow-hover"></i>
+                    </a>
+                    <ul id="Dashboards" class="submenu collapse" data-parent="#mm-sidebar-toggle">
+                        <li class="">
+                            <a href="{{route('admin.satuan-barang.index')}}" class="svg-icon">
+                                <i class="">
+                                    <svg class="svg-icon" id="mm-ui-1-13" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                    </svg>
+                                </i><span class="">Penjualan Harian</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
             {{-- end-sidemenu --}}
             </ul>
         </nav>

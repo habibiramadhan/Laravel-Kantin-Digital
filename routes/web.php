@@ -65,6 +65,15 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::put('/update/{id}', 'Admin\PenjualanHarianController@update')->name('update');
         Route::delete('/destroy/{id}', 'Admin\PenjualanHarianController@destroy')->name('destroy');
     });
+
+    Route::prefix('satuan-barang')->name('satuan-barang.')->group(function(){
+        Route::get('/index', 'Admin\SatuanController@index')->name('index');
+        Route::get('/create', 'Admin\SatuanController@create')->name('create');
+        Route::post('/store', 'Admin\SatuanController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\SatuanController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\SatuanController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\SatuanController@destroy')->name('destroy');
+    });
     
 });
 

@@ -16,6 +16,7 @@ class AddUserController extends Controller
      */
     public function index()
     {
+        $
         $users= User::latest()->get();
         return view('admin.program-baru.index', compact('users'));
     }
