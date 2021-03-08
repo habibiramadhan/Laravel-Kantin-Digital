@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'tgl_transaksi',
+        'menu_makanan_id',
+        'total',
+    ];
 }

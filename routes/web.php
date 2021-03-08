@@ -49,6 +49,15 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::put('/update/{id}', 'Admin\MenuMakananController@update')->name('update');
         Route::delete('/destroy/{id}', 'Admin\MenuMakananController@destroy')->name('destroy');
     });
+
+    Route::prefix('penjualan-harian')->name('penjualan-harian.')->group(function(){
+        Route::get('/index', 'Admin\PenjualanHarianController@index')->name('index');
+        Route::get('/create', 'Admin\PenjualanHarianController@create')->name('create');
+        Route::post('/store', 'Admin\PenjualanHarianController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\PenjualanHarianController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\PenjualanHarianController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\PenjualanHarianController@destroy')->name('destroy');
+    });
     
 });
 
