@@ -27,7 +27,7 @@
                         <th>Alamat</th>
                         <th>Action</th>
                       </tr>
-                   </thead>what
+                   </thead>
                    <tbody>
                     @foreach ($penjuals as $item)
                     <tr>

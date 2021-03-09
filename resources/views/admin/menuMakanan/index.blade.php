@@ -7,53 +7,50 @@
 <div class="row">
     <div class="col-sm-12">
        <div class="card">
-        
           <div class="card-header d-flex justify-content-between">
              <div class="header-title">
                 <h4 class="card-title">{{ __('Daftar Menu Makanan') }}</h4>
-
              </div>
-          <div class="header-action">
-            <button class="btn btn-primary float-right shadow"
-            data-toggle="modal" data-target="#modalTambah">
-                 Tambah Menu Makanan
-            </button>  
-                </div>
+            <div class="header-action">
+                <button class="btn btn-primary float-right shadow" data-toggle="modal" data-target="#modalTambah">
+                    Tambah Menu Makanan
+                </button>  
+            </div>
           </div>
           <div class="card-body">
              <div class="table-responsive">
                 <table id="datatable" class="table data-table table-striped table-bordered">
-                   <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Penjual</th>
-                        <th>Kategori Makanan</th>
-                        <th>Nama Makanan</th>
-                        <th>Harga Penjual</th>
-                        <th>Harga Jual</th>
-                        <th>Action</th>
-                      </tr>
-                   </thead>
-                   <tbody>
-                    @foreach ($menus as $item)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->namaPenjual['nama_penjual'] }}</td>
-                        <td>{{ $item->kategoriMakanan['nama_kategori'] }}</td>
-                        <td>{{ $item->nama_makanan }}</td>
-                        <td>{{ $item->harga_penjual }}</td>
-                        <td>{{ $item->harga_jual }}</td>
-                        <td>
-                              <form action="{{ route('admin.menu-makanan.destroy', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="{{ route('admin.menu-makanan.edit', $item->id) }}" class="btn btn-info">Edit</a>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                              </form>
-                        </td>
-                    </tr>    
-                @endforeach
-                   </tbody>
+                    <thead>
+                       <tr>
+                         <th>No</th>
+                         <th>Nama Penjual</th>
+                         <th>Kategori Makanan</th>
+                         <th>Nama Makanan</th>
+                         <th>Harga Penjual</th>
+                         <th>Harga Jual</th>
+                         <th>Action</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                     @foreach ($menus as $item)
+                     <tr>
+                         <td>{{ $loop->iteration }}</td>
+                         <td>{{ $item->namaPenjual['nama_penjual'] }}</td>
+                         <td>{{ $item->kategoriMakanan['nama_kategori'] }}</td>
+                         <td>{{ $item->nama_makanan }}</td>
+                         <td>{{ $item->harga_penjual }}</td>
+                         <td>{{ $item->harga_jual }}</td>
+                         <td>
+                               <form action="{{ route('admin.menu-makanan.destroy', $item->id) }}" method="POST">
+                                     @csrf
+                                     @method('DELETE')
+                                     <a href="{{ route('admin.menu-makanan.edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                     <button type="submit" class="btn btn-danger">Delete</button>
+                               </form>
+                         </td>
+                     </tr>    
+                 @endforeach
+                    </tbody>
                 </table>
              </div>
           </div>
