@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {return view('welcome');})->name('welcome');
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home');
-
+Route::prefix('kasir')->name('kasir.')->middleware('role:kasir')->group(function(){
+    Route::get('/', 'Kasir\DashboardController@dashboard')->name('home');
+    Route::get('/home', 'Kasir\DashboardController@dashboard')->name('home');
+});
 // ADMIN
 Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function(){
     Route::get('/', 'Admin\DashboardController@dashboard')->name('home');
@@ -49,6 +51,11 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::put('/update/{id}', 'Admin\MenuMakananController@update')->name('update');
         Route::delete('/destroy/{id}', 'Admin\MenuMakananController@destroy')->name('destroy');
     });
+    Route::prefix('program-baru')->name('program-baru.')->group(function(){
+        Route::get('/index', 'Admin\AddUserController@index')->name('index');
+    });
+
+    Route::get('transaksi/index', 'Admin\AddUserController@index')->name('transaksi.index');
 
     Route::prefix('penjualan-harian')->name('penjualan-harian.')->group(function(){
         Route::get('/index', 'Admin\PenjualanHarianController@index')->name('index');
@@ -58,11 +65,19 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::put('/update/{id}', 'Admin\PenjualanHarianController@update')->name('update');
         Route::delete('/destroy/{id}', 'Admin\PenjualanHarianController@destroy')->name('destroy');
     });
+
+    Route::prefix('satuan-barang')->name('satuan-barang.')->group(function(){
+        Route::get('/index', 'Admin\SatuanController@index')->name('index');
+        Route::get('/create', 'Admin\SatuanController@create')->name('create');
+        Route::post('/store', 'Admin\SatuanController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\SatuanController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\SatuanController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\SatuanController@destroy')->name('destroy');
+    });
     
 });
 
 
-Route::get('kasir/dashboard', 'HomeController@index')->middleware(['role:kasir', 'verified'])->name('home');
 //Profile 
 Route::prefix('profile')->name('profile.')->group(function(){
     Route::get('profile-edit', 'ProfileController@edit')->name('edit');
