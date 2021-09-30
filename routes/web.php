@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Barang;
+use App\Models\BarangMasuk;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,8 +57,6 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::get('/index', 'Admin\AddUserController@index')->name('index');
     });
 
-    Route::get('transaksi/index', 'Admin\AddUserController@index')->name('transaksi.index');
-
     Route::prefix('penjualan-harian')->name('penjualan-harian.')->group(function(){
         Route::get('/index', 'Admin\PenjualanHarianController@index')->name('index');
         Route::get('/create', 'Admin\PenjualanHarianController@create')->name('create');
@@ -66,19 +66,32 @@ Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function
         Route::delete('/destroy/{id}', 'Admin\PenjualanHarianController@destroy')->name('destroy');
     });
 
-    Route::prefix('satuan-barang')->name('satuan-barang.')->group(function(){
-        Route::get('/index', 'Admin\SatuanController@index')->name('index');
-        Route::get('/create', 'Admin\SatuanController@create')->name('create');
-        Route::post('/store', 'Admin\SatuanController@store')->name('store');
-        Route::get('/edit/{id}', 'Admin\SatuanController@edit')->name('edit');
-        Route::put('/update/{id}', 'Admin\SatuanController@update')->name('update');
-        Route::delete('/destroy/{id}', 'Admin\SatuanController@destroy')->name('destroy');
+    Route::prefix('stok-barang')->name('stok-barang.')->group(function(){
+        Route::get('/index', 'Admin\BarangController@index')->name('index');
+        Route::post('/store', 'Admin\BarangController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\BarangController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\BarangController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\BarangController@destroy')->name('destroy');
+        Route::get('/barang-keluar/{id}','Admin\BarangController@show')->name('show');
+        Route::put('/update-stok/{id}', 'Admin\BarangController@updateStok')->name('update-stok');
     });
-    
-});
 
+    Route::prefix('barang-masuk')->name('barang-masuk.')->group(function(){
+        Route::get('/index', 'Admin\BarangMasukController@index')->name('index');
+        Route::post('/store', 'Admin\BarangMasukController@store')->name('store');
+        Route::get('/edit/{id}', 'Admin\BarangMasukController@edit')->name('edit');
+        Route::put('/update/{id}', 'Admin\BarangMasukController@update')->name('update');
+        Route::delete('/destroy/{id}', 'Admin\BarangMasukController@destroy')->name('destroy');
+    });
+});
 
 //Profile 
 Route::prefix('profile')->name('profile.')->group(function(){
     Route::get('profile-edit', 'ProfileController@edit')->name('edit');
+});
+
+Route::get('sad', function(){
+    return BarangMasuk::find(1)->whereHas('barang' ,function($qr){
+        return $qr->where('satuan_barang', 'kg');
+    })->get();
 });

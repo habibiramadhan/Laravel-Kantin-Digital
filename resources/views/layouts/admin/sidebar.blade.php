@@ -2,8 +2,8 @@
 <div class="mm-sidebar  sidebar-default ">
     <div class="mm-sidebar-logo d-flex align-items-center justify-content-between">
         <a href="{{route('admin.home')}}" class="header-logo">
-            <img src="http://localhost:8000/assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-            <img src="http://localhost:8000/assets/images/logo.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
+            <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid rounded-normal light-logo" alt="logo">
+            <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid rounded-normal darkmode-logo" alt="logo">
         </a>
         <div class="side-menu-bt-sidebar">
             <i class="ri-menu-line wrapper-menu "></i>
@@ -25,7 +25,7 @@
                         <span>Halaman Utama</span>
                     </a>
                 </li>
-<li><a href="{{route('admin.transaksi.index')}}">Transaksi</a></li>
+
                 <li class="@if(request()->routeIs('admin.category.*')) active @endif">
                     <a href="{{route('admin.category.index')}}" class="svg-icon">
                         <i class=" @if(request()->routeIs('admin.category.*')) active @endif">
@@ -76,15 +76,18 @@
                 <li class="">
                     <a href="{{route('admin.penjualan-harian.index')}}" class="svg-icon">
                         <i class="">
-                            <svg class="svg-icon" id="mm-ui-1-13" xmlns="http://www.w3.org/2000/svg" width="20"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
-                                <line x1="8" y1="6" x2="21" y2="6"></line>
-                                <line x1="8" y1="12" x2="21" y2="12"></line>
-                                <line x1="8" y1="18" x2="21" y2="18"></line>
-                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            <svg class="svg-icon" id="mm-table-1-3" xmlns="http://www.w3.org/2000/svg"
+                                width="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="4" y1="6" x2="9.5" y2="6" />
+                                <line x1="4" y1="10" x2="9.5" y2="10" />
+                                <line x1="4" y1="14" x2="9.5" y2="14" />
+                                <line x1="4" y1="18" x2="9.5" y2="18" />
+                                <line x1="14.5" y1="6" x2="20" y2="6" />
+                                <line x1="14.5" y1="10" x2="20" y2="10" />
+                                <line x1="14.5" y1="14" x2="20" y2="14" />
+                                <line x1="14.5" y1="18" x2="20" y2="18" />
                             </svg>
                         </i><span class="">Penjualan Harian</span>
                     </a>
@@ -107,7 +110,7 @@
                     </a>
                     <ul id="Dashboards" class="submenu collapse" data-parent="#mm-sidebar-toggle">
                         <li class="">
-                            <a href="{{route('admin.satuan-barang.index')}}" class="svg-icon">
+                            <a href="{{ route('admin.barang-masuk.index') }}" class="svg-icon">
                                 <i class="">
                                     <svg class="svg-icon" id="mm-ui-1-13" xmlns="http://www.w3.org/2000/svg" width="20"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -119,10 +122,25 @@
                                         <line x1="3" y1="12" x2="3.01" y2="12"></line>
                                         <line x1="3" y1="18" x2="3.01" y2="18"></line>
                                     </svg>
-                                </i><span class="">Penjualan Harian</span>
+                                </i><span class="">Barang Masuk</span>
                             </a>
                         </li>
-                        
+                        <li class="">
+                            <a href="{{ route('admin.stok-barang.index') }}" class="svg-icon">
+                                <i class="">
+                                    <svg class="svg-icon" id="mm-ui-1-13" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                    </svg>
+                                </i><span class="">Stock Barang</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             {{-- end-sidemenu --}}
@@ -133,7 +151,7 @@
                 <div class="card-body">
                     <div class="sidebarbottom-content">
                         <div class="image">
-                            <img src="http://localhost:8000/assets/images/layouts/layout-1/side-bkg.png" class="img-fluid"
+                            <img src="{{ asset('assets/images/layouts/layout-1/side-bkg.png') }}" class="img-fluid"
                                 alt="side-bkg" />
                         </div>
                         <h5 class="mb-3 text-white mt-3">Tahukah kamu ?</h5>

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 
-@section('title', 'Kategori Satuan')
+@section('title', 'Barang Masuk')
 
 @section('content')
 <div class="row">
@@ -10,13 +10,13 @@
         
           <div class="card-header d-flex justify-content-between">
              <div class="header-title">
-                <h4 class="card-title">{{ __('Daftar Satuan Barang') }}</h4>
+                <h4 class="card-title">{{ __('Daftar Barang Masuk') }}</h4>
 
              </div>
           <div class="header-action">
             <button class="btn btn-primary float-right shadow"
             data-toggle="modal" data-target="#modalTambah">
-                 Tambah Satuan
+                 Tambah Barang Masuk
             </button>  
                 </div>
           </div>
@@ -26,21 +26,20 @@
                    <thead>
                       <tr>
                          <th>No</th>
-                         <th>Nama Satuan</th>
+                         <th>Nama Barang</th>
                          <th>Action</th>
-                         
                       </tr>
                    </thead>
                    <tbody>
-                    @foreach ($satuans as $item)
+                    @foreach ($barang_masuk as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->nama_barang }}</td>
                         <td>
-                            <form action="{{ route('admin.satuan-barang.destroy', $item->id) }}" method="POST">
+                            <form action="{{ route('admin.barang-masuk.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('admin.satuan-barang.edit', $item->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('admin.barang-masuk.edit', $item->id) }}" class="btn btn-info">Edit</a>
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
@@ -61,20 +60,26 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="border-radius: 10px">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTambahLabel">Tambah Satuan Barang</h5>
+                <h5 class="modal-title" id="modalTambahLabel">Tambah Barang Masuk</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="{{ route('admin.satuan-barang.store') }}">
+            <form method="POST" action="{{ route('admin.barang-masuk.store') }}">
                 @csrf
                 <div class="modal-body">
                     <div class="col-md-12 mt-2">
                         <div class="row">
-                            <label for="name" class="col-md-3 col-form-label">Satuan Barang</label>
+                            <label for="nama_barang" class="col-md-3 col-form-label">Nama Barang</label>
                             <div class="col-md-9">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
-                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                <input id="nama_barang" type="text" class="form-control @error('nama_barang') is-invalid @enderror" name="nama_barang" value="{{ old('nama_barang') }}" autocomplete="nama_barang" autofocus>
+                                <p class="text-danger">{{ $errors->first('nama_barang') }}</p>
+                            </div>
+
+                            <label for="tanggal" class="col-md-3 col-form-label">Tanggal</label>
+                            <div class="col-md-9">
+                                <input id="tanggal" type="date" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal" value="{{ old('tanggal') }}" autocomplete="tanggal" autofocus>
+                                <p class="text-danger">{{ $errors->first('tanggal') }}</p>
                             </div>
                         </div>
                     </div>
@@ -89,9 +94,5 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection
 

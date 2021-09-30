@@ -5,7 +5,7 @@
             <div class="mm-navbar-logo d-flex align-items-center justify-content-between">
                 <i class="ri-menu-line wrapper-menu"></i>
                 <a href="{{route('admin.home')}}" class="header-logo">
-                    <img src="http://localhost:8000/assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
+                    <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid rounded-normal" alt="logo">
                     <h4 class="ml-1"><b>Kantin Digital</b></h4>
                 </a>
             </div>
@@ -135,7 +135,7 @@
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 
-                                <img src="http://localhost:8000/assets/images/user/1.jpg" class="img-fluid avatar-rounded" alt="user">
+                                <img src="{{ asset('assets/images/user/1.jpg') }}" class="img-fluid avatar-rounded" alt="user">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <li class="dropdown-item d-flex svg-icon">

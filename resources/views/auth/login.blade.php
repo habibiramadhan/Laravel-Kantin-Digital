@@ -16,9 +16,9 @@
             <div class="card">
                <div class="card-body">
                   <div class="auth-logo">
-                     <img src="../assets/images/logo-kd.jpeg" class="img-fluid rounded-normal" alt="logo">
+                     <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid rounded-normal" alt="logo">
                   </div>
-                  <h2 class="mb-2 text-center">Login Katin Digital</h2>
+                  {{-- <h2 class="mb-2 text-center">Login Katin Digital</h2> --}}
                   <p class="text-center">Agar tetap terhubung dengan kami, harap masuk dengan info pribadi Anda.</p>
                   <form method="POST" action="{{ route('login') }}">
                 @csrf

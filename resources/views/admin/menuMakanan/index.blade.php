@@ -38,8 +38,8 @@
                          <td>{{ $item->namaPenjual['nama_penjual'] }}</td>
                          <td>{{ $item->kategoriMakanan['nama_kategori'] }}</td>
                          <td>{{ $item->nama_makanan }}</td>
-                         <td>{{ $item->harga_penjual }}</td>
-                         <td>{{ $item->harga_jual }}</td>
+                         <td>Rp{{ number_format($item->harga_penjual, 0, ',', '.') }}</td>
+                         <td>Rp{{ number_format($item->harga_jual, 0, ',', '.') }}</td>
                          <td>
                                <form action="{{ route('admin.menu-makanan.destroy', $item->id) }}" method="POST">
                                      @csrf
@@ -77,7 +77,7 @@
                             <label for="nama_penjual_id" class="col-md-3 col-form-label">Nama Penjual</label>
                             <div class="col-md-9">
                                 <select name="nama_penjual_id" class="form-control @error('nama_penjual_id') is-invalid @enderror">
-                                        <option disabled>PILIH</option>
+                                        <option disabled selected>PILIH</option>
                                     @foreach($penjuals as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_penjual }}</option>
                                     @endforeach
@@ -88,7 +88,7 @@
                             <label for="nama_kategori_id" class="col-md-3 col-form-label">Kategori Makanan</label>
                             <div class="col-md-9">
                                 <select name="nama_kategori_id" class="form-control @error('nama_kategori_id') is-invalid @enderror">
-                                        <option disabled>PILIH</option>
+                                        <option disabled selected>PILIH</option>
                                     @foreach($kategoris as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                                     @endforeach

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 
-@section('title', 'Edit Kategori Makan')
+@section('title', 'Edit Kategori Makanan')
 
 @section('content')
 <div class="row">

@@ -11,7 +11,6 @@
             <div class="card-header d-flex justify-content-between">
                 <div class="header-title">
                     <h4 class="card-title">{{ __('Edit Kategori Makanan') }}</h4>
-
                 </div>
                 <div class="header-action">
                 </div>

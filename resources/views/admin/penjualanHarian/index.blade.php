@@ -24,7 +24,7 @@
                                     <tr>
                                           <th>No</th>
                                           <th>Nama Makanan</th>
-                                          <th>Harga</th>
+                                          <th>Harga Jual</th>
                                           <th>Stock</th>
                                           <th>Action</th>
 
@@ -34,8 +34,8 @@
                                     @foreach ($penjualanHarians as $item)
                                     <tr>
                                           <td>{{ $loop->iteration }}</td>
-                                          <td>{{ $item->nama_makanan }}</td>
-                                          <td>{{ $item->harga_jual }}</td>
+                                          <td>{{ $item->namaMakanan['nama_makanan'] }}</td>
+                                          <td>Rp{{ number_format($item->hargaJual['harga_jual'], 0, ',', '.') }}</td>
                                           <td>{{ $item->stock }}</td>
                                           <td>
                                           <form action="{{ route('admin.penjualan-harian.destroy', $item->id) }}" method="POST">
@@ -47,7 +47,6 @@
                                           </td>
                                     </tr>    
                                     @endforeach
-                                    
                                     </tbody>
                               </table>
                         </div>
@@ -75,12 +74,22 @@
                                     <label for="menu_makanan_id" class="col-md-3 col-form-label">Nama Makanan</label>
                                     <div class="col-md-9">
                                           <select name="menu_makanan_id" class="form-control @error('menu_makanan_id') is-invalid @enderror">
-                                                <option disabled>PILIH</option>
+                                                <option disabled selected>PILIH</option>
                                                 @foreach($menus as $item)
                                                       <option value="{{ $item->id }}">{{ $item->nama_makanan }}</option>
                                                 @endforeach
                                           </select>
-                                          <p class="text-danger">{{ $errors->first('nama_penjual_id') }}</p>
+                                          <p class="text-danger">{{ $errors->first('menu_makanan_id') }}</p>
+                                    </div>
+                                    <label for="harga_jual" class="col-md-3 col-form-label">Harga Jual</label>
+                                    <div class="col-md-9">
+                                          <select name="harga_jual" class="form-control @error('harga_jual') is-invalid @enderror">
+                                                <option disabled selected>PILIH</option>
+                                                @foreach($menuss as $item)
+                                                      <option value="{{ $item->id }}">Rp{{ number_format($item->harga_jual, 0, ',', '.') }}</option>
+                                                @endforeach
+                                          </select>
+                                          <p class="text-danger">{{ $errors->first('harga_jual') }}</p>
                                     </div>
                                     <label for="stock" class="col-md-3 col-form-label">Stock</label>
                                     <div class="col-md-9">

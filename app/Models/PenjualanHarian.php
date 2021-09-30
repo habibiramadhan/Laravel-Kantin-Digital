@@ -9,11 +9,13 @@ class PenjualanHarian extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'menu_makanan_id',
-        'stock',
+        'menu_makanan_id', 'harga_jual','stock',
     ];
 
-    public function menuMakanan() {
+    public function namaMakanan() {
         return $this->belongsTo(MenuMakanan::class, 'menu_makanan_id');
+    }
+    public function hargaJual() {
+        return $this->belongsTo(MenuMakanan::class, 'harga_jual');
     }
 }

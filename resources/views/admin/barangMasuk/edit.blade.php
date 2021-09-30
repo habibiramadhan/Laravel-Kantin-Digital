@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 
-@section('title', 'Edit Satuan Barang')
+@section('title', 'Edit Barang Masuk')
 
 @section('content')
 <div class="row">
@@ -10,7 +10,7 @@
 
             <div class="card-header d-flex justify-content-between">
                 <div class="header-title">
-                    <h4 class="card-title">{{ __('Edit Satuan Barang') }}</h4>
+                    <h4 class="card-title">{{ __('Edit Barang Masuk') }}</h4>
 
                 </div>
                 <div class="header-action">
@@ -19,15 +19,15 @@
             <div class="card-body">
                 <div class="table-responsive">
 
-                    <form method="POST" action="{{ route('admin.satuan-barang.update', $satuans->id) }}">
+                    <form method="POST" action="{{ route('admin.barang-masuk.update', $barang_masuk->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="email">Nama Satuan Barang:</label>
-                            <input id="name" type="text"
-                                class="form-control @error('name') is-invalid @enderror" name="name"
-                                value="{{ $satuans->name }}" autocomplete="name" autofocus>
-                            @error('name')
+                            <label for="nama_barang">Nama Barang :</label>
+                            <input id="nama_barang" type="text"
+                                class="form-control @error('nama_barang') is-invalid @enderror" name="nama_barang"
+                                value="{{ $barang_masuk->nama_barang }}" autocomplete="nama_barang" autofocus>
+                            @error('nama_barang')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -45,11 +45,4 @@
 </div>
 </div>
 
-
-
-
-
-
 @endsection
-
-

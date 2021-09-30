@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 
-@section('title', 'Edit Kategori Makan')
+@section('title', 'Edit Menu Makanan')
 
 @section('content')
       <div class="row">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body">
                               <div class="table-responsive">
-                                    <form method="POST" action="{{ route('admin.menu-makanan.update', $kategoris->id, $penjuals, $menus) }}">
+                                    <form method="POST" action="{{ route('admin.menu-makanan.update', $menus->id, $penjuals, $menus) }}">
                                           @csrf
                                           @method('PUT')
                                           <div class="form-group">
@@ -38,7 +38,7 @@
                                                 <select name="nama_kategori_id" class="form-control @error('nama_kategori_id') is-invalid @enderror">
                                                       <option disabled>PILIH</option>
                                                 @foreach($kategoris as $item)
-                                                      <option value="{{ $item->id }}">{{ $item->nama_penjual }}</option>
+                                                      <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                                                 @endforeach
                                           </select>
                                                 @error('nama_kategori_id')
@@ -49,7 +49,7 @@
                                           </div>
                                           <div class="form-group">
                                                 <label for="nama_makanan">Edit Nama Makanan :</label>
-                                                <input id="nama_makanan" type="text" class="form-control @error('nama_makanan') is-invalid @enderror" name="nama_makanan" alue="{{ $menus->nama_makanan }}" autocomplete="nama_makanan" autofocus>
+                                                <input id="nama_makanan" type="text" class="form-control @error('nama_makanan') is-invalid @enderror" name="nama_makanan" value="{{ $menus->nama_makanan }}" autocomplete="nama_makanan" autofocus>
                                                 @error('nama_makanan')
                                                       <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                                           </div>
                                           <div class="form-group">
                                                 <label for="harga_penjual">Edit Harga Penjual :</label>
-                                                <input id="harga_penjual" type="number" class="form-control @error('harga_penjual') is-invalid @enderror" name="harga_penjual" alue="{{ $menus->harga_penjual }}" autocomplete="harga_penjual" autofocus>
+                                                <input id="harga_penjual" type="number" class="form-control @error('harga_penjual') is-invalid @enderror" name="harga_penjual" value="{{ $menus->harga_penjual }}" autocomplete="harga_penjual" autofocus>
                                                 @error('harga_penjual')
                                                       <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                                           </div>
                                           <div class="form-group">
                                                 <label for="harga_jual">Edit Harga Jual :</label>
-                                                <input id="harga_jual" type="number" class="form-control @error('harga_jual') is-invalid @enderror" name="harga_jual" alue="{{ $menus->harga_jual }}" autocomplete="harga_jual" autofocus>
+                                                <input id="harga_jual" type="number" class="form-control @error('harga_jual') is-invalid @enderror" name="harga_jual" value="{{ $menus->harga_jual }}" autocomplete="harga_jual" autofocus>
                                                 @error('harga_jual')
                                                       <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>

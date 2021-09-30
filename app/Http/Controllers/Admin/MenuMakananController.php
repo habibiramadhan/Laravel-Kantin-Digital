@@ -45,9 +45,16 @@ class MenuMakananController extends Controller
 
     public function edit($id)
     {
-        $penjuals = NamaPenjual::findOrFail($id);
-        $kategoris = Kategori::findOrFail($id);
+        
         $menus = MenuMakanan::findOrFail($id);
+        $hargaPenj = number_format($menus->harga_penjual, 0, ',', '.');
+        $hargaJual = number_format($menus->harga_jual, 0,',', '.');
+        $menus->harga_penjual = $hargaPenj;
+        $menus->harga_jual = $hargaJual;
+        
+        $penjuals = NamaPenjual::orderBy('nama_penjual', 'ASC')->get();
+        $kategoris = Kategori::orderBy('nama_kategori', 'ASC')->get();
+        
         return view('admin.menuMakanan.edit', compact('menus', 'kategoris', 'penjuals'));
     }
 

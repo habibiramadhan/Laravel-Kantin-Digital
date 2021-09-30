@@ -8,23 +8,23 @@
 <!-- Mirrored from meetmighty.com/dashboards/simpled/html/backend/auth-sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 04:14:57 GMT -->
 <head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>@yield('title')</title>
-      
-      <!-- Favicon -->
-      <link rel="icon" href="{{ asset('assets/images/logo111.png') }}" type = "image/x-icon"/>
-      <link rel="stylesheet" href=" {{ asset('assets/css/backend-plugin.min.css') }}">
-      <link rel="stylesheet" href=" {{ asset('assets/css/backende209.css?v=1.0.0') }}">
-      <link rel="stylesheet" href=" {{ asset('assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css') }}">
-      <link rel="stylesheet" href=" {{ asset('assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css') }}">
-      <link rel="stylesheet" href=" {{ asset('assets/vendor/remixicon/fonts/remixicon.css') }}">
-      <link rel="stylesheet" href=" {{ asset('assets/vendor/%40icon/dripicons/dripicons.css') }}">
-      
-      <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/core/main.css') }}' />
-      <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/daygrid/main.css') }}' />
-      <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/timegrid/main.css') }}' />
-      <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/list/main.css') }}' />
-      <link rel="stylesheet" href=" {{ asset('assets/vendor/mapbox/mapbox-gl.css') }}">  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@yield('title')</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('assets/images/logo111.png') }}" type = "image/x-icon"/>
+    <link rel="stylesheet" href=" {{ asset('assets/css/backend-plugin.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/css/backende209.css?v=1.0.0') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/vendor/%40fortawesome/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/vendor/remixicon/fonts/remixicon.css') }}">
+    <link rel="stylesheet" href=" {{ asset('assets/vendor/%40icon/dripicons/dripicons.css') }}">
+    
+    <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/core/main.css') }}' />
+    <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/daygrid/main.css') }}' />
+    <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/timegrid/main.css') }}' />
+    <link rel='stylesheet' href=' {{ asset('assets/vendor/fullcalendar/list/main.css') }}' />
+    <link rel="stylesheet" href=" {{ asset('assets/vendor/mapbox/mapbox-gl.css') }}">  </head>
   <body class=" ">
     <div id="loading">
         <div id="loading-center">
