@@ -23,7 +23,7 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="stok">Edit Stok Barang:</label>
+                            <label for="stok">Edit Stok Barang :</label>
                             <input id="stok" type="number"
                                 class="form-control @error('stok') is-invalid @enderror" name="stok"
                                 value="{{ $stok_barang->stok }}" autocomplete="stok" autofocus>

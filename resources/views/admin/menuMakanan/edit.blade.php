@@ -20,7 +20,7 @@
                                           @csrf
                                           @method('PUT')
                                           <div class="form-group">
-                                                <label for="email">Edit Nama Penjual :</label>
+                                                <label for="nama_penjual_id">Edit Nama Penjual :</label>
                                                 <select name="nama_penjual_id" class="form-control @error('nama_penjual_id') is-invalid @enderror">
                                                       <option disabled>PILIH</option>
                                                 @foreach($penjuals as $item)
@@ -34,7 +34,7 @@
                                                 @enderror
                                           </div>
                                           <div class="form-group">
-                                                <label for="email">Edit Kategori Makanan :</label>
+                                                <label for="nama_kategori_id">Edit Kategori Makanan :</label>
                                                 <select name="nama_kategori_id" class="form-control @error('nama_kategori_id') is-invalid @enderror">
                                                       <option disabled>PILIH</option>
                                                 @foreach($kategoris as $item)

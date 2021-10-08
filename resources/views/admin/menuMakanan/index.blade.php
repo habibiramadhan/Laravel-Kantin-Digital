@@ -14,7 +14,7 @@
             <div class="header-action">
                 <button class="btn btn-primary float-right shadow" data-toggle="modal" data-target="#modalTambah">
                     Tambah Menu Makanan
-                </button>  
+                </button>
             </div>
           </div>
           <div class="card-body">
@@ -48,7 +48,7 @@
                                      <button type="submit" class="btn btn-danger">Delete</button>
                                </form>
                          </td>
-                     </tr>    
+                     </tr>
                  @endforeach
                     </tbody>
                 </table>
@@ -61,7 +61,7 @@
 
 {{-- MODAL TAMBAH MENU MAKANAN --}}
 <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="modalTambahLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="border-radius: 10px">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTambahLabel">Tambah Menu Makanan</h5>
@@ -99,24 +99,24 @@
                             <label for="nama_makanan" class="col-md-3 col-form-label">Nama Makanan</label>
                             <div class="col-md-9">
                                 <input id="nama_makanan" type="text" class="form-control @error('nama_makanan') is-invalid @enderror" name="nama_makanan" value="{{ old('nama_makanan') }}" autocomplete="nama_makanan" autofocus>
-                                
+
                                 <p class="text-danger">{{ $errors->first('nama_makanan') }}</p>
                             </div>
 
                             <label for="harga_penjual" class="col-md-3 col-form-label">Harga Penjual</label>
                             <div class="col-md-9">
                                 <input id="harga_penjual" type="number" class="form-control @error('harga_penjual') is-invalid @enderror" name="harga_penjual" value="{{ old('harga_penjual') }}" autocomplete="harga_penjual" autofocus>
-                                
+
                                 <p class="text-danger">{{ $errors->first('harga_penjual') }}</p>
                             </div>
 
                             <label for="harga_jual" class="col-md-3 col-form-label">Harga Jual</label>
                             <div class="col-md-9">
                                 <input id="harga_jual" type="number" class="form-control @error('harga_jual') is-invalid @enderror" name="harga_jual" value="{{ old('harga_jual') }}" autocomplete="harga_jual" autofocus>
-                                
+
                                 <p class="text-danger">{{ $errors->first('harga_jual') }}</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

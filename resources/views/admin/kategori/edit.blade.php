@@ -23,10 +23,8 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="email">Edit Kategori Makanan:</label>
-                            <input id="nama_kategori" type="text"
-                                class="form-control @error('nama_kategori') is-invalid @enderror" name="nama_kategori"
-                                value="{{ $kategoris->nama_kategori }}" autocomplete="nama_kategori" autofocus>
+                            <label for="nama_kategori">Edit Kategori Makanan :</label>
+                            <input id="nama_kategori" type="text" class="form-control @error('nama_kategori') is-invalid @enderror" name="nama_kategori" value="{{ $kategoris->nama_kategori }}" autocomplete="nama_kategori" autofocus>
                             @error('nama_kategori')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

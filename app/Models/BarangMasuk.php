@@ -9,10 +9,10 @@ class BarangMasuk extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama_barang'
+        'nama_barang', 'tanggal'
     ];
     public function barang()
-    { 
-        return $this->hasMany(Barang::class, 'nama_barang'); 
+    {
+        return $this->hasMany(Barang::class, 'nama_barang');
     }
 }

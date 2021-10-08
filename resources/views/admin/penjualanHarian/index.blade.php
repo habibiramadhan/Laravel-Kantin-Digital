@@ -14,7 +14,7 @@
                         <div class="header-action">
                               <button class="btn btn-primary float-right shadow" data-toggle="modal" data-target="#modalTambah">
                                     Tambah Penjual Harian
-                              </button>  
+                              </button>
                         </div>
                   </div>
                   <div class="card-body">
@@ -45,7 +45,7 @@
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                           </form>
                                           </td>
-                                    </tr>    
+                                    </tr>
                                     @endforeach
                                     </tbody>
                               </table>
@@ -58,7 +58,7 @@
 
 {{-- MODAL TAMBAH KATEGORI --}}
 <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="modalTambahLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="border-radius: 10px">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTambahLabel">Tambah Penjualan Harian</h5>
@@ -94,14 +94,14 @@
                                     <label for="stock" class="col-md-3 col-form-label">Stock</label>
                                     <div class="col-md-9">
                                           <input id="stock" type="number" class="form-control @error('stock') is-invalid @enderror" name="stock" value="{{ old('stock') }}" autocomplete="stock" autofocus>
-                                          
+
                                           <p class="text-danger">{{ $errors->first('stock') }}</p>
                                     </div>
                               </div>
                         </div>
                   </div>
-                  
-                  
+
+
                   <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
                               {{ __('Simpan') }}

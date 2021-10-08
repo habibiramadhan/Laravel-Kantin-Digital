@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-sm-12">
        <div class="card">
-        
+
           <div class="card-header d-flex justify-content-between">
              <div class="header-title">
                 <h4 class="card-title">{{ __('Daftar Stock Barang') }}</h4>
@@ -17,7 +17,7 @@
             <button class="btn btn-primary float-right shadow"
             data-toggle="modal" data-target="#modalTambah">
                  Tambah Stock Barang
-            </button>  
+            </button>
                 </div>
           </div>
           <div class="card-body">
@@ -28,21 +28,21 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Stock</th>
-                            
+
                         </tr>
-                    </thead>    
+                    </thead>
                     <tbody>
                         @foreach ($barang_masuk as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_barang  }}</td>
                             <td>
-                                <ul class="list-group"> 
+                                <ul class="list-group">
                                     @foreach ($item->barang as $row)
                                         <li class="list-group-item">
                                             <div class="d-flex justify-content-between">
                                                 <a href="{{ route('admin.stok-barang.show', $row->id) }}">{{ $row->stok }} {{ $row->satuan_barang }}</a>
-                                        
+
                                                 <form action="{{ route('admin.stok-barang.destroy', $row->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -51,10 +51,10 @@
                                                 </form>
                                             </div>
                                         </li>
-                                    @endforeach 
+                                    @endforeach
                                 </ul>
                             </td>
-                        </tr>    
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -67,7 +67,7 @@
 
 {{-- MODAL TAMBAH KATEGORI --}}
 <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="modalTambahLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="border-radius: 10px">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTambahLabel">Tambah Stok Barang</h5>

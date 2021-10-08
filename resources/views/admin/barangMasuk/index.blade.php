@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-sm-12">
        <div class="card">
-        
+
           <div class="card-header d-flex justify-content-between">
              <div class="header-title">
                 <h4 class="card-title">{{ __('Daftar Barang Masuk') }}</h4>
@@ -17,7 +17,7 @@
             <button class="btn btn-primary float-right shadow"
             data-toggle="modal" data-target="#modalTambah">
                  Tambah Barang Masuk
-            </button>  
+            </button>
                 </div>
           </div>
           <div class="card-body">
@@ -27,6 +27,7 @@
                       <tr>
                          <th>No</th>
                          <th>Nama Barang</th>
+                         <th>Tanggal</th>
                          <th>Action</th>
                       </tr>
                    </thead>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->nama_barang }}</td>
+                        <td>{{ $item->tanggal }}</td>
                         <td>
                             <form action="{{ route('admin.barang-masuk.destroy', $item->id) }}" method="POST">
                                 @csrf
@@ -43,9 +45,9 @@
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-                    </tr>    
+                    </tr>
                 @endforeach
-                     
+
                    </tbody>
                 </table>
              </div>
@@ -57,7 +59,7 @@
 
 {{-- MODAL TAMBAH KATEGORI --}}
 <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="modalTambahLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" style="border-radius: 10px">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTambahLabel">Tambah Barang Masuk</h5>

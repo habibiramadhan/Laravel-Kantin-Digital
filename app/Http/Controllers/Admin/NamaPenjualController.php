@@ -19,7 +19,9 @@ class NamaPenjualController extends Controller
         //melakukan validasi data
         $request->validate([
             'nama_penjual' => 'required',
+            'jk' => 'required',
             'alamat' => 'required',
+            'no_hp' => 'required'
         ]);
         //fungsi eloquent untuk menambah data
         NamaPenjual::create($request->all());
@@ -39,7 +41,9 @@ class NamaPenjualController extends Controller
         //melakukan validasi data
         $request->validate([
             'nama_penjual' => 'required',
+            'jk' => 'required',
             'alamat' => 'required',
+            'no_hp' => 'required'
         ]);
         //fungsi eloquent untuk menambah data
         NamaPenjual::findOrFail($id)->update($request->all());

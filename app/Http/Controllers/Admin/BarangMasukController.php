@@ -17,7 +17,8 @@ class BarangMasukController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'nama_barang' => 'required'
+            'nama_barang' => 'required',
+            'tanggal' => 'required'
         ]);
         BarangMasuk::create($request->all());
         return redirect()->route('admin.barang-masuk.index')
@@ -34,7 +35,7 @@ class BarangMasukController extends Controller
     {
         $request->validate([
             'nama_barang' => 'required',
-            'stok' => 'required',
+            'tanggal' => 'required',
         ]);
         BarangMasuk::findOrFail($id)->update($request->all());
         return redirect()->route('admin.barang-masuk.index')

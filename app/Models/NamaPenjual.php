@@ -9,7 +9,6 @@ class NamaPenjual extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nama_penjual',
-        'alamat',
+        'nama_penjual', 'jk', 'alamat', 'no_hp'
     ];
 }

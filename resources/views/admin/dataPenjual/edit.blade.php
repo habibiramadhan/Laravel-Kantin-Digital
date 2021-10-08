@@ -22,25 +22,42 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="email">Edit Penjual Makanan :</label>
-                            <input id="nama_penjual" type="text"
-                                class="form-control @error('nama_penjual') is-invalid @enderror" name="nama_penjual"
-                                value="{{ $penjuals->nama_penjual }}" autocomplete="nama_penjual" autofocus>
+                            <label for="email">Edit Nama Penjual :</label>
+                            <input id="nama_penjual" type="text" class="form-control @error('nama_penjual') is-invalid @enderror" name="nama_penjual" value="{{ $penjuals->nama_penjual }}" autocomplete="nama_penjual" autofocus>
                             @error('nama_penjual')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="jk">Edit Jenis Kelamin :</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jk" name="jk" value="L" <?php if ($penjuals->jk == "L") echo "checked" ?> >
+                                <label class="form-check-label" for="jk">Laki-laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jk" id="jk" value="P" <?php if ($penjuals->jk == "P") echo "checked" ?> >
+                                <label class="form-check-label" for="jk">Perempuan</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="alamat">Edit Alamat :</label>
-                            <input id="alamat" type="text"
-                                class="form-control @error('alamat') is-invalid @enderror" name="alamat"
-                                value="{{ $penjuals->alamat }}" autocomplete="alamat" autofocus>
+                            <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ $penjuals->alamat }}" autocomplete="alamat" autofocus>
                             @error('alamat')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">Edit No. Handphone :</label>
+                            <input id="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ $penjuals->no_hp }}" autocomplete="no_hp" autofocus>
+                            @error('no_hp')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">
