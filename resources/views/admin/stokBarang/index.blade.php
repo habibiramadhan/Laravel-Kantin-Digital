@@ -27,10 +27,13 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
+                            <th>Tanggal Barang Keluar</th>
                             <th>Stock</th>
-
                         </tr>
                     </thead>
+                    @php
+                        $tanggal = \App\Models\Barang::select('id', 'tanggal')->first();
+                    @endphp
                     <tbody>
                         @foreach ($barang_masuk as $item)
                         <tr>
@@ -39,14 +42,26 @@
                             <td>
                                 <ul class="list-group">
                                     @foreach ($item->barang as $row)
+                                        @if ($row->tanggal != null)
+                                            <li class="list-group-item">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>{{ date('d F Y', strtotime($row->tanggal)) }}</span>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group">
+                                    @foreach ($item->barang as $row)
                                         <li class="list-group-item">
                                             <div class="d-flex justify-content-between">
-                                                <a href="{{ route('admin.stok-barang.show', $row->id) }}">{{ $row->stok }} {{ $row->satuan_barang }}</a>
-
+                                                <span>{{ $row->stok }} {{ $row->satuan_barang }}</span>
                                                 <form action="{{ route('admin.stok-barang.destroy', $row->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    {{-- <a href="{{ route('admin.stok-barang.edit', $item->id) }}" class="btn btn-info">Edit</a> --}}
+                                                    <a href="{{ route('admin.stok-barang.show', $row->id) }}" class="btn btn-info">Barang Keluar</a>
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
                                             </div>

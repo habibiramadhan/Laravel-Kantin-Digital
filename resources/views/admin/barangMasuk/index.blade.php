@@ -36,7 +36,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->nama_barang }}</td>
-                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ date('d F Y', strtotime($item->tanggal)) }}</td>
                         <td>
                             <form action="{{ route('admin.barang-masuk.destroy', $item->id) }}" method="POST">
                                 @csrf

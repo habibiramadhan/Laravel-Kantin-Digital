@@ -62,7 +62,8 @@ class BarangController extends Controller
     public function show($id)
     {
         return view('admin.stokBarang.show', [
-            'barang' => Barang::findOrFail($id)
+            'barang' => Barang::findOrFail($id),
+            'barang_masuk' => BarangMasuk::findOrFail($id)
         ]);
     }
 
@@ -71,12 +72,13 @@ class BarangController extends Controller
         $request->validate([
             // 'nama_barang' => 'required',
             'stok' => 'required',
+            'tanggal' => 'required',
         ]);
 
         $barang = Barang::where('id', $request->id)->first();
-        $barang->stok = $barang->stok + $request->stok;
+        $barang->stok = $barang->stok - $request->stok;
+        $barang->tanggal = $request->tanggal;
         $barang->update();
-        // dd($request->aa)
         return redirect()->route('admin.stok-barang.index')->with('success', 'Barang berhasil keluar');
     }
 }
